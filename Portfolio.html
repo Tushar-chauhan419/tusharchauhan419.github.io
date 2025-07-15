@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tushar Chauhan | Portfolio</title>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --text-color: #ffffff;
+      --muted: #aaaaaa;
+      --btn-bg: #ffffff;
+      --btn-text: #000;
+    }
+
+    body.light {
+      --bg-color: #f5f5f5;
+      --text-color: #000;
+      --muted: #444;
+      --btn-bg: #000;
+      --btn-text: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.4s, color 0.4s;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    header .name {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header .tagline {
+      font-size: 1.25rem;
+      color: var(--muted);
+    }
+
+    .intro, .projects, .education, .contact {
+      margin-top: 4rem;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1rem auto;
+      display: block;
+      border: 3px solid var(--btn-bg);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(90deg, var(--btn-bg), #bbb);
+      color: var(--btn-text);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #ddd, var(--btn-bg));
+      transform: scale(1.05);
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      margin: 0.5rem 0;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .education-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .edu-card {
+      background: rgba(255,255,255,0.05);
+      padding: 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .edu-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--btn-bg);
+    }
+
+    .contact {
+      border: 2px solid var(--btn-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 400px;
+      margin: 4rem auto 0 auto;
+      text-align: left;
+      color: var(--text-color);
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact p, .contact a {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-align: center;
+      padding-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .card img {
+        height: auto;
+      }
+      .contact {
+        max-width: 100%;
+        margin: 2rem 1rem 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
+
+  <div class="container">
+    <header data-aos="fade-down">
+      <h1 class="name">Tushar Chauhan</h1>
+      <p class="tagline">Data Analyst & Insight Enthusiast</p>
+    </header>
+
+    <section class="intro" data-aos="fade-up" data-aos-delay="200">
+      <img src="https://i.postimg.cc/sXM0N12Q/Tushar-Photo.jpg" alt="Tushar Chauhan Profile" class="profile-img" />
+      <h2>Hello, I'm Tushar</h2>
+      <p>I specialize in deriving insights from complex datasets to drive smarter decisions using modern analytical tools and techniques.</p>
+      <div class="social-icons">
+        <a href="https://linkedin.com/in/tusharchauhan" target="_blank" style="color:#0a66c2;"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Tushar-chauhan419" target="_blank" style="color:#770a0a;"><i class="fab fa-github"></i></a>
+        <a href="mailto:tusharchauhan400@gmail.com" style="color:#EA4335;"><i class="fas fa-envelope"></i></a>
+      </div>
+      <a href="#projects" class="btn">See My Work</a>
+    </section>
+
+    <section class="education" data-aos="fade-up">
+      <h2>Education</h2>
+      <div class="education-cards">
+        <div class="edu-card"><h3>Post Graduation</h3><p><strong>MCA (2024 - 2026)</strong><br>Uttaranchal University</p></div>
+        <div class="edu-card"><h3>Graduation</h3><p><strong>B.Sc (PCM) (2021 - 2024)</strong><br>MJP Rohilkhand University</p></div>
+        <div class="edu-card"><h3>12th</h3><p><strong>Science (2021)</strong><br>Aadarsh Inter College (UP Board)</p></div>
+        <div class="edu-card"><h3>10th</h3><p><strong>(2019)</strong><br>Aadarsh Inter College (UP Board)</p></div>
+      </div>
+    </section>
+
+
+    <section class="projects" id="projects" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <!-- ✅ Project 1: HR Analytics Dashboard -->
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://raw.githubusercontent.com/Tushar-chauhan419/hr-analytics-dashboard-powerbi/main/HR%20Analytics%20Dashboard%20(1).jpg" alt="HR Analytics Dashboard" />
+          <h3>HR Analytics Dashboard</h3>
+          <p>Interactive Power BI dashboard analyzing attrition, demographics, satisfaction, and salary data. Built using Power BI, DAX, and Excel.</p>
+          <a href="https://github.com/Tushar-chauhan419/hr-analytics-dashboard-powerbi" class="btn" target="_blank">🔗 View Project</a>
+        </div>
+
+        <!-- ✅ Project 2: Placeholder Right Side -->
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://via.placeholder.com/300x150?text=Coming+Soon" alt="Coming Soon" />
+          <h3>Coming Soon</h3>
+          <p>This space is reserved for the next exciting project!</p>
+          <a href="#" class="btn" target="_blank">🔗 View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" data-aos="fade-up" data-aos-delay="400">
+      <h2>Contact Me</h2>
+      <p><strong>Email:</strong> <a href="mailto:tusharchauhan400@gmail.com">tusharchauhan400@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+916396200316">+91 6396200316</a></p>
+      <p><strong>Location:</strong> <a href="https://www.google.com/maps/place/Basera+Khurd,+Uttar+Pradesh+246734" target="_blank">Bijnor, India</a></p>
+    </section>
+
+    <a href="https://drive.google.com/file/d/1uz9fvQjrOEstnBp0HzueiTXccoMkhILw/view?usp=drive_link" target="_blank" class="btn" style="margin-top: 2rem;">📄 Download Resume</a>
+
+    <footer>
+      &copy; 2025 Tushar Chauhan. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>
